@@ -94,7 +94,10 @@ class Dictionary(object):
                     words.append("".join(word_file.word))
                 
                 word_file = Word.readWordFromFile(f)
-        return words
+        if len(words) >= 5:
+            return (words, 5)
+        else:
+            return(words, len(words))
     
     @staticmethod
     def showWordPlus(pawns, c):
@@ -111,5 +114,9 @@ class Dictionary(object):
                         words.append("".join(word_file.word))
             
                 word_file = Word.readWordFromFile(f)
-        return words
+        
+        if len(words) >= 5:
+            return (words, 5)
+        else:
+            return(words, len(words))
     
