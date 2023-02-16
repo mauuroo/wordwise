@@ -99,12 +99,16 @@ class Board(object):
                 else:
                     x += 1
 
+
+            #Comprueba si hay una letra antes o despues de la palabra
             if d == "H":
-                if (y0 != 0 and self.board[x0][y0 - 1] != " ") or (y0 != 14 and self.board[x0][y0 + 1] != " "):
-                    connect_pawn = False
+                if y0 > 0 and y0 + word.getLenghtWord <= 14:
+                    if (self.board[x0][y0 - 1] != " ") or (self.board[x0][y0 + word.getLenghtWord] != " "):
+                        connect_pawn = False
             elif d == "V":
-                if (x0 != 0 and self.board[x0 - 1][y0] != " ") or (x0 != 14 and self.board[x0 + 1][y0] != " "):
-                    connect_pawn = False
+                if x0 > 0 and x0 + word.getLenghtWord <= 14:
+                    if (self.board[x0 - 1][y0] != " ") or (self.board[x0 + word.getLenghtWord][y0] != " "):
+                        connect_pawn = False
                     
             
             if exist == True and is_possible == True and new_pawn == True and connect_pawn:
