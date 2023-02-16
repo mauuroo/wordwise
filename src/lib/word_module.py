@@ -10,9 +10,15 @@ class Word(object):
 
 
     def areEqual(self, w):
+        """
+        Comprueba si la palabra es igual a otra palabra
+        """
         return True if self.word == w.word else False
 
     def isEmpty(self):
+        """"
+        Comprueba si la longitud de la palabra es 0
+        """
         return True if self.getLenghtWord == 0 else False
 
 
@@ -48,6 +54,9 @@ class Word(object):
 
     @classmethod
     def readWord(cls):
+        """
+        Solicita una palabra  y crea un objeto de la clase Word.
+        """
         word = cls()
         string = input("Introduce una palabra: ").upper()
         

@@ -39,9 +39,15 @@ class Pawns(object):
         self.letter = []
     
     def addPawn(self, caracter):
+        """
+        Recibe un caracter y lo agrega a las fichas del objeto.
+        """
         self.letter.append(caracter)
     
     def addPawns(self, caracter, n):
+        """
+        Recibe un caracter y las veces que se quiere que este se agrege a las fichas del objeto
+        """
         for _ in range(n):
             self.addPawn(caracter)
 
@@ -60,7 +66,7 @@ class Pawns(object):
 
     def takeRandomPawn(self):
         """
-        Retorna una ficha aleratoria de la bolsa, a la vez que la elimina de la bolsa
+        Retorna una ficha aleratoria de la bolsa, a la vez que la elimina de la bolsa.
         """
         card = random.choice(self.letter)
         self.letter.remove(card)
@@ -71,7 +77,7 @@ class Pawns(object):
         Elimina una ficha indicada del array.
 
         Args:
-            pawn(str): ficha (letra) a eliminar de las fichas del objeto
+            pawn(str): ficha (letra) a eliminar de las fichas del objeto.
         """
         self.letter.remove(pawn)
 
@@ -84,7 +90,7 @@ class Pawns(object):
     
     def getFrecuency(self):
         """
-        Retorna la lista de frecuencias de las fichas del objeto
+        Retorna la lista de frecuencias de las fichas del objeto.
         """
         obj = FrecuencyTable()
         for c in self.letter:
@@ -92,15 +98,24 @@ class Pawns(object):
         return obj
 
     def getTotalPawns(self):
+        """
+        Retorna la cantidad de fichas que tiene el objeto.
+        """
         return len(self.letter)
 
     @staticmethod
     def getPoints(c):
+        """
+        Retorna los puntos que tiene una letra del juego.
+        """
         return Pawns.points[c]
 
 
     @staticmethod
     def showPawnsPoints():
+        """
+        Muestra los puntos que tiene cada letra del juego.
+        """
         for c in Pawns.points:
             point = Pawns.getPoints(c)
             print((c, point))
@@ -119,6 +134,9 @@ class FrecuencyTable(object):
                 print((self.letters[i], self.frecuencies[i]))
     
     def update(self, c):
+        """
+        Recibe una letra y aumenta la frecuencia de ese caracter.
+        """
         self.frecuencies[self.letters.index(c)] += 1
 
     @staticmethod
