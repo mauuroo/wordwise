@@ -6,7 +6,6 @@ import numpy
 def help():
     option = input("A) 5 Palabras validas a formar con tus fichas\n"
                    "B) 5 Palabras posibles a formar con una ficha del tablero\n"
-                   "C) Posibles colocaciones de una palabra sobre el tablero\n"
                    "D) Atrás\n").upper()
                    
     if option == "A":
@@ -21,10 +20,6 @@ def help():
         print(numpy.random.choice(words[0], number_of_words, False))
 
     elif option == "C":
-        word = lib.Word.readWord()
-        lib.Board.showWordPlacement(player_pawns, word)
-
-    elif option == "D":
         initial_menu()
     else:
         print("Opción no valida")
@@ -63,9 +58,13 @@ def enter_word():
                     print("No cuentas con las fichas requeridas de la palabra.")
             else:
                 print(is_possible[1])
+                input("Enter para continuar...")
         
         elif option == "B":
             board.showWordPlacement(player_pawns, new_word)
+            input("Enter para continuar...\n")
+
+            enter_word()
         
         elif option == "C":
             initial_menu()

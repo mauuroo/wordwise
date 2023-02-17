@@ -87,6 +87,7 @@ class Dictionary(object):
 
         if w.isEmpty() and not word.areEqual(w):
             print("La palabra no se encuentra en el diccionario")
+            input("Enter para continuar...")
             return False
         return True
 
